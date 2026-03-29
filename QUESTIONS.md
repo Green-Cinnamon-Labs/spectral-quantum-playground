@@ -1,4 +1,4 @@
-# Research Questions
+# Perguntas de Pesquisa
 
 Este é o arquivo central do projeto. Cada pergunta deve ter: por que ela importa, qual notebook tenta respondê-la, e qual evidência mínima conta como "respondida".
 
@@ -6,26 +6,12 @@ Regra de crescimento: um notebook novo só existe depois que a pergunta que ele 
 
 ---
 
-## Core
-
-- [ ] **Q-C1** — O que exatamente um circuito quântico extrai de um operador?
-  - **Por que importa:** Define o que computação quântica realmente faz, além de "aplicar portas".
-  - **Notebook:** [C-04](core/C-04_phase_estimation.ipynb)
-  - **Respondida quando:** Consigo demonstrar que um circuito extrai informação espectral (fase) que não é diretamente acessível por leitura clássica simples, e identificar as hipóteses necessárias.
-
-- [ ] **Q-C2** — Por que phase estimation pode ser vista como processamento espectral?
-  - **Por que importa:** Phase estimation é o arquétipo de algoritmo quântico útil. Entender por que é "espectral" desmonta a ideia de que circuitos quânticos apenas "calculam coisas mais rápido".
-  - **Notebook:** [C-04](core/C-04_phase_estimation.ipynb)
-  - **Respondida quando:** Consigo ligar diretamente a distribuição de medição ao espectro do unitário, com um exemplo numérico verificado classicamente.
-
-- [ ] **Q-C3** — Quais propriedades de um problema sobrevivem à tradução para circuito?
-  - **Por que importa:** A tradução nunca é gratuita. Perder de vista o que se preserva e o que se perde é o principal motivo de ilusão de vantagem quântica.
-  - **Notebook:** [C-06](core/C-06_problem_translation.ipynb)
-  - **Respondida quando:** Tenho pelo menos dois exemplos de tradução com análise explícita do que foi preservado e do que foi sacrificado.
-
----
-
 ## Fundamentos
+
+- [ ] **Q-F0** — Por que um qubit é um substrato computacional?
+  - **Por que importa:** Antes de definir estados e operadores, vale estabelecer o que torna o qubit interessante: não é ter "dois estados", é ter amplitudes complexas cuja fase sobrevive até a interferência. Sem essa intuição, o formalismo do C-01 em diante parece arbitrário.
+  - **Notebook:** [C-00](core/C-00_why_qubit_computes.ipynb)
+  - **Respondida quando:** Demonstro um exemplo minimal onde fase + superposição + interferência produzem um resultado determinístico que não seria possível sem a estrutura complexa das amplitudes.
 
 - [ ] **Q-F1** — O que exatamente é um estado quântico?
   - **Por que importa:** Confundir estado com vetor de probabilidades ou com string de bits é a fonte de mais mal-entendidos em computação quântica.
@@ -46,6 +32,25 @@ Regra de crescimento: um notebook novo só existe depois que a pergunta que ele 
   - **Por que importa:** Interferência é o mecanismo central que separa computação quântica de computação probabilística clássica. Localizá-la concretamente é fundamental.
   - **Notebook:** [C-03](core/C-03_phase_kickback.ipynb)
   - **Respondida quando:** Mostro um caso onde interferência construtiva/destrutiva muda o resultado de uma computação de forma não reproduzível classicamente sem enumeração explícita.
+
+---
+
+## Core
+
+- [ ] **Q-C1** — O que exatamente um circuito quântico extrai de um operador?
+  - **Por que importa:** Define o que computação quântica realmente faz, além de "aplicar portas".
+  - **Notebook:** [C-04](core/C-04_phase_estimation.ipynb)
+  - **Respondida quando:** Consigo demonstrar que um circuito extrai informação espectral (fase) que não é diretamente acessível por leitura clássica simples, e identificar as hipóteses necessárias.
+
+- [ ] **Q-C2** — Por que phase estimation pode ser vista como processamento espectral?
+  - **Por que importa:** Phase estimation é o arquétipo de algoritmo quântico útil. Entender por que é "espectral" desmonta a ideia de que circuitos quânticos apenas "calculam coisas mais rápido".
+  - **Notebook:** [C-04](core/C-04_phase_estimation.ipynb)
+  - **Respondida quando:** Consigo ligar diretamente a distribuição de medição ao espectro do unitário, com um exemplo numérico verificado classicamente.
+
+- [ ] **Q-C3** — Quais propriedades de um problema sobrevivem à tradução para circuito?
+  - **Por que importa:** A tradução nunca é gratuita. Perder de vista o que se preserva e o que se perde é o principal motivo de ilusão de vantagem quântica.
+  - **Notebook:** [C-06](core/C-06_problem_translation.ipynb)
+  - **Respondida quando:** Tenho pelo menos dois exemplos de tradução com análise explícita do que foi preservado e do que foi sacrificado.
 
 ---
 
