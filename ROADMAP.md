@@ -9,13 +9,10 @@
 **Goal:** move from "portas e qubits como objetos soltos" to "problemas formulados como estados + operadores + medição".
 
 **Notebooks:**
-- [ ] `00_states_operators_measurements.ipynb` — linguagem fundamental
-- [ ] `01_unitaries_spectrum_and_dynamics.ipynb` — por que unitário importa
+- [ ] [C-01](core/C-01_states_operators_measurements.ipynb) — linguagem fundamental
+- [ ] [C-02](core/C-02_unitaries_spectrum_dynamics.ipynb) — por que unitário importa
 
-**Perguntas cobertas:**
-- O que exatamente é um estado quântico?
-- Por que a evolução precisa ser unitária?
-- O que medição devolve, e o que ela destrói?
+**Perguntas cobertas:** Q-F1, Q-F2, Q-F3
 
 **Critério de conclusão:** Consigo formular qualquer experimento dos milestones seguintes sem precisar voltar à definição de estado ou operador.
 
@@ -30,14 +27,10 @@
 **Goal:** move from "circuito como sequência de portas" to "circuito como mecanismo de extração de informação espectral".
 
 **Notebooks:**
-- [ ] `02_phase_kickback.ipynb` — onde interferência começa a "dizer algo" sobre o operador
-- [ ] `03_phase_estimation_toy_models.ipynb` — primeiro marco real do projeto
+- [ ] [C-03](core/C-03_phase_kickback.ipynb) — onde interferência começa a "dizer algo" sobre o operador
+- [ ] [C-04](core/C-04_phase_estimation.ipynb) — primeiro marco real do projeto
 
-**Perguntas cobertas:**
-- Onde entra a interferência de fato?
-- O que o espectro de um operador diz sobre a computação?
-- Por que phase estimation é um algoritmo "espectral"?
-- Por que phase estimation pode ser vista como processamento espectral?
+**Perguntas cobertas:** Q-F4, Q-S1, Q-S3, Q-C1, Q-C2
 
 **Critério de conclusão:** Consigo ligar diretamente a distribuição de saída do QPE ao espectro do operador de entrada, verificado classicamente.
 
@@ -52,14 +45,10 @@
 **Goal:** move from "entender experimentos quânticos isolados" to "saber formular problemas pequenos para a linguagem do QPU".
 
 **Notebooks:**
-- [ ] `04_hamiltonian_simulation_small_cases.ipynb` — Hamiltoniano como caso de uso central
-- [ ] `05_problem_to_operator_translation.ipynb` — notebook explicitamente sobre a tese
+- [ ] [C-05](core/C-05_hamiltonian_simulation.ipynb) — dinâmica contínua como circuito *(status provisional — ver INDEX.md)*
+- [ ] [C-06](core/C-06_problem_translation.ipynb) — notebook explicitamente sobre a tese
 
-**Perguntas cobertas:**
-- Como um problema clássico vira operador, estado inicial e medição?
-- O custo de preparação do estado mata a vantagem em quais casos?
-- Quais propriedades de um problema sobrevivem à tradução para circuito?
-- Quais classes de problema admitem uma tradução limpa?
+**Perguntas cobertas:** Q-T1, Q-T2, Q-T4, Q-T5, Q-C3
 
 **Critério de conclusão:** Tenho pelo menos dois exemplos completos de tradução (problema → operador → circuito → medição) com análise de custo honesta.
 
@@ -74,15 +63,10 @@
 **Goal:** move from "intuição local sobre algoritmos" to "vocabulário e estrutura para ler a fronteira com criticidade".
 
 **Notebooks:**
-- [ ] `06_singular_values_vs_eigenvalues.ipynb` — distinção estrutural fundamental
-- [ ] `07_qsp_qsvt_entry_point.ipynb` — entrada na fronteira
+- [ ] [C-07](core/C-07_singular_values_vs_eigenvalues.ipynb) — distinção estrutural fundamental
+- [ ] [C-08](core/C-08_qsp_qsvt_entry_point.ipynb) — entrada na fronteira
 
-**Perguntas cobertas:**
-- Qual a diferença entre autovalores e valores singulares?
-- Toda formulação útil precisa passar por um unitário?
-- O que QSP transforma: autovalores ou valores singulares?
-- Por que QSVT exige block-encoding?
-- Em que sentido eigenvalue processing amplia o quadro do QSVT?
+**Perguntas cobertas:** Q-S2, Q-T3, Q-B1, Q-B2, Q-B3
 
 **Critério de conclusão:** Consigo ler um paper recente de QSP/QSVT e identificar qual estrutura espectral ele processa, por quê, e onde block-encoding entra.
 
