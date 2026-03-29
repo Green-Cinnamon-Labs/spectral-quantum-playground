@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "spectral-quantum-playground"
+version = "0.1.0"
+description = "Caderno de pesquisa reproduzível sobre tradução de problemas para circuitos quânticos"
+authors = []
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+numpy = "^1.26"
+scipy = "^1.13"
+matplotlib = "^3.9"
+jupyterlab = "^4.2"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# ---------------------------------------------------------------------------
+# Comandos essenciais
+# ---------------------------------------------------------------------------
+#
+# Criar ambiente virtual e instalar dependências:
+#   poetry install
+#
+# Ativar o ambiente:
+#   poetry shell
+#
+# Rodar Jupyter sem ativar o shell:
+#   poetry run jupyter lab
+#
+# Gerar requirements.txt (para Binder / Colab / CI):
+#   poetry export -f requirements.txt --output requirements.txt --without-hashes
+#
+# ---------------------------------------------------------------------------
