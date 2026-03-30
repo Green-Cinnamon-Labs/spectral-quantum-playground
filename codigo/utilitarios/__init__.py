@@ -7,7 +7,7 @@ import numpy as np
 
 def binary_strings(n):
     """Return all n-bit binary strings as list of strings."""
-    return [format(i, f'0{n}b') for i in range(2**n)]
+    return [format(i, f"0{n}b") for i in range(2**n)]
 
 
 def state_to_dict(state, n_qubits, threshold=1e-6):
@@ -15,8 +15,8 @@ def state_to_dict(state, n_qubits, threshold=1e-6):
     result = {}
     for i, amp in enumerate(state):
         if abs(amp) > threshold:
-            label = format(i, f'0{n_qubits}b')
-            result[f'|{label}>'] = amp
+            label = format(i, f"0{n_qubits}b")
+            result[f"|{label}>"] = amp
     return result
 
 
