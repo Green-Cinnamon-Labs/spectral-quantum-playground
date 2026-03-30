@@ -9,8 +9,8 @@
 **Goal:** move from "portas e qubits como objetos soltos" to "problemas formulados como estados + operadores + medição".
 
 **Notebooks:**
-- [ ] [C-01](core/C-01_states_operators_measurements.ipynb) — linguagem fundamental
-- [ ] [C-02](core/C-02_unitaries_spectrum_dynamics.ipynb) — por que unitário importa
+- [ ] [C-01](nucleo/C-01_estados_operadores_medidas.ipynb) — linguagem fundamental
+- [ ] [C-02](nucleo/C-02_unitarios_espectro_dinamica.ipynb) — por que unitário importa
 
 **Perguntas cobertas:** Q-F1, Q-F2, Q-F3
 
@@ -27,8 +27,8 @@
 **Goal:** move from "circuito como sequência de portas" to "circuito como mecanismo de extração de informação espectral".
 
 **Notebooks:**
-- [ ] [C-03](core/C-03_phase_kickback.ipynb) — onde interferência começa a "dizer algo" sobre o operador
-- [ ] [C-04](core/C-04_phase_estimation.ipynb) — primeiro marco real do projeto
+- [ ] [C-03](nucleo/C-03_kickback_de_fase.ipynb) — onde interferência começa a "dizer algo" sobre o operador
+- [ ] [C-04](nucleo/C-04_estimacao_de_fase.ipynb) — primeiro marco real do projeto
 
 **Perguntas cobertas:** Q-F4, Q-S1, Q-S3, Q-C1, Q-C2
 
@@ -45,8 +45,8 @@
 **Goal:** move from "entender experimentos quânticos isolados" to "saber formular problemas pequenos para a linguagem do QPU".
 
 **Notebooks:**
-- [ ] [C-05](core/C-05_hamiltonian_simulation.ipynb) — dinâmica contínua como circuito *(status provisional — ver INDEX.md)*
-- [ ] [C-06](core/C-06_problem_translation.ipynb) — notebook explicitamente sobre a tese
+- [ ] [C-05](nucleo/C-05_simulacao_hamiltoniana.ipynb) — dinâmica contínua como circuito *(status provisional — ver INDEX.md)*
+- [ ] [C-06](nucleo/C-06_traducao_de_problemas.ipynb) — notebook explicitamente sobre a tese
 
 **Perguntas cobertas:** Q-T1, Q-T2, Q-T4, Q-T5, Q-C3
 
@@ -63,8 +63,8 @@
 **Goal:** move from "intuição local sobre algoritmos" to "vocabulário e estrutura para ler a fronteira com criticidade".
 
 **Notebooks:**
-- [ ] [C-07](core/C-07_singular_values_vs_eigenvalues.ipynb) — distinção estrutural fundamental
-- [ ] [C-08](core/C-08_qsp_qsvt_entry_point.ipynb) — entrada na fronteira
+- [ ] [C-07](nucleo/C-07_valores_singulares_vs_autovalores.ipynb) — distinção estrutural fundamental
+- [ ] [C-08](nucleo/C-08_qsp_qsvt_entrada.ipynb) — entrada na fronteira
 
 **Perguntas cobertas:** Q-S2, Q-T3, Q-B1, Q-B2, Q-B3
 

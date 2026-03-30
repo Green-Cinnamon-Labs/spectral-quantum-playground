@@ -36,33 +36,25 @@ Essa pergunta se desdobra em quatro trilhas. Ver [QUESTIONS.md](QUESTIONS.md) pa
 ```
 spectral-quantum-playground/
 │
+├── INDEX.md                  # Mapa de navegação central
 ├── QUESTIONS.md              # Coração do projeto — perguntas e critérios de resposta
 ├── ROADMAP.md                # Milestones e trilha de progresso
-├── references/
-│   ├── papers.md             # Referências bibliográficas comentadas
-│   └── notes/                # Notas de leitura
 │
-├── notebooks/
-│   ├── 00_states_operators_measurements.ipynb
-│   ├── 01_unitaries_spectrum_and_dynamics.ipynb
-│   ├── 02_phase_kickback.ipynb
-│   ├── 03_phase_estimation_toy_models.ipynb
-│   ├── 04_hamiltonian_simulation_small_cases.ipynb
-│   ├── 05_problem_to_operator_translation.ipynb
-│   ├── 06_singular_values_vs_eigenvalues.ipynb
-│   └── 07_qsp_qsvt_entry_point.ipynb
+├── nucleo/                   # Trilha principal (C-00 a C-08)
+├── digressoes/               # Notebooks instrumentais curtos (D-00 a D-04)
+├── matematica/               # Exploração matemática com vínculo ao projeto (M-00 a M-03)
 │
-├── src/
-│   ├── linear_algebra/       # Utilitários de álgebra linear
-│   ├── circuits/             # Construtores de circuitos
-│   ├── visualization/        # Plots e diagramas
-│   └── utils/                # Funções auxiliares gerais
+├── codigo/
+│   ├── algebra_linear/       # Utilitários de álgebra linear
+│   ├── circuitos/            # Construtores de circuitos
+│   ├── visualizacao/         # Plots e diagramas
+│   └── utilitarios/          # Funções auxiliares gerais
 │
-├── experiments/
-│   ├── toy_operators/        # Operadores de teste
-│   └── logs/                 # Registro de experimentos
+├── experimentos/
+│   ├── operadores_teste/     # Operadores de teste
+│   └── registros/            # Registro de experimentos
 │
-└── assets/                   # Figuras e recursos estáticos
+└── recursos/                 # Figuras e recursos estáticos
 ```
 
 ## Formato dos notebooks

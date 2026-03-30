@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Caderno de pesquisa reproduzível sobre tradução de problemas para circuitos quânticos"
 authors = []
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "codigo" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
