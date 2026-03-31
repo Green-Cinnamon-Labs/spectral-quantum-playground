@@ -15,11 +15,11 @@ Leitura sequencial recomendada — pré-requisitos indicados no header de cada n
 | [C-01](nucleo/C-01_estados_operadores_medidas.ipynb) | Estados, Operadores e Medidas | Q-F1, Q-F3 | D-01, D-02 | M-00 | rascunho |
 | [C-02](nucleo/C-02_unitarios_espectro_dinamica.ipynb) | Unitários, Espectro e Dinâmica | Q-F2, Q-S1 | — | M-00, M-01 | rascunho |
 | [C-03](nucleo/C-03_kickback_de_fase.ipynb) | Kickback de Fase | Q-F4 | D-02 | — | rascunho |
-| [C-04](nucleo/C-04_estimacao_de_fase.ipynb) | Estimação de Fase | Q-C1, Q-C2, Q-S3 | D-03 | M-01 | rascunho |
+| [C-04](nucleo/C-04_estimacao_de_fase.ipynb) | Estimação de Fase | Q-C1, Q-C2, Q-S3 | D-03 | M-01, M-02 | rascunho |
 | [C-05](nucleo/C-05_simulacao_hamiltoniana.ipynb) | Simulação Hamiltoniana | Q-T2 | D-03 | M-01 | rascunho ⚠️ provisional |
-| [C-06](nucleo/C-06_traducao_de_problemas.ipynb) | Tradução de Problemas | Q-C3, Q-T1, Q-T4, Q-T5 | — | — | rascunho |
-| [C-07](nucleo/C-07_valores_singulares_vs_autovalores.ipynb) | Valores Singulares vs. Autovalores | Q-S2, Q-T3 | D-04 | M-03 | rascunho |
-| [C-08](nucleo/C-08_qsp_qsvt_entrada.ipynb) | QSP / QSVT — Entrada | Q-B1, Q-B2, Q-B3 | D-04 | M-02, M-03 | rascunho |
+| [C-06](nucleo/C-06_traducao_de_problemas.ipynb) | Tradução de Problemas | Q-C3, Q-T1, Q-T4, Q-T5 | D-04 | M-02 | rascunho |
+| [C-07](nucleo/C-07_valores_singulares_vs_autovalores.ipynb) | Valores Singulares vs. Autovalores | Q-S2, Q-T3 | D-05 | M-04 | rascunho |
+| [C-08](nucleo/C-08_qsp_qsvt_entrada.ipynb) | QSP / QSVT — Entrada | Q-B1, Q-B2, Q-B3 | D-05 | M-03, M-04 | rascunho |
 
 > ⚠️ **C-05 — decisão aberta:** Simulação hamiltoniana pode migrar para digressão D-05 dependendo de como C-06 se desenvolver. Reavaliar ao fechar C-06.
 
@@ -36,7 +36,8 @@ Estrutura obrigatória: definição mínima → por que importa aqui → exemplo
 | [D-01](digressoes/D-01_regra_de_born_e_colapso.ipynb) | Regra de Born e Colapso | C-01 | esqueleto |
 | [D-02](digressoes/D-02_produtos_tensoriais.ipynb) | Produtos Tensoriais | C-01, C-03 | esqueleto |
 | [D-03](digressoes/D-03_comutadores_e_erro_de_trotter.ipynb) | Comutadores e Erro de Trotter | C-04, C-05 | esqueleto |
-| [D-04](digressoes/D-04_block_encoding_minimal.ipynb) | Block-Encoding Minimal | C-07, C-08 | esqueleto |
+| [D-04](digressoes/D-04_problema_de_simon.ipynb) | O Problema de Simon | C-06 | esqueleto |
+| [D-05](digressoes/D-05_block_encoding_minimal.ipynb) | Block-Encoding Minimal | C-07, C-08 | esqueleto |
 
 ---
 
@@ -50,8 +51,9 @@ Não é pré-requisito bloqueante por padrão — exceto quando marcado como est
 |---|---|---|---|
 | [M-00](matematica/M-00_vetores_espaco_de_hilbert.ipynb) | Vetores, Espaços e o Espaço de Hilbert | C-01 em diante, D-00 | rascunho |
 | [M-01](matematica/M-01_teoria_espectral_operadores.ipynb) | Teoria Espectral de Operadores | C-02, C-04, C-05 | esqueleto |
-| [M-02](matematica/M-02_aproximacao_polinomial.ipynb) | Aproximação Polinomial | C-08 (QSP) | esqueleto |
-| [M-03](matematica/M-03_svd_geometria.ipynb) | SVD — Geometria e Interpretação | C-07, C-08 | esqueleto |
+| [M-02](matematica/M-02_transformada_de_fourier.ipynb) | A Transformada de Fourier: da decomposição espectral à QFT | C-04, C-06 | esqueleto |
+| [M-03](matematica/M-03_aproximacao_polinomial.ipynb) | Aproximação Polinomial | C-08 (QSP) | esqueleto |
+| [M-04](matematica/M-04_svd_geometria.ipynb) | SVD — Geometria e Interpretação | C-07, C-08 | esqueleto |
 
 ---
 
