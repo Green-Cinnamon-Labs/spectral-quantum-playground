@@ -88,6 +88,7 @@ Exploração matemática com vínculo explícito ao projeto. Última seção obr
 | [M-02](matematica/M-02.ipynb) | Mecânica Quântica: de Planck a Dirac | D-00 | esqueleto |
 | [M-03](matematica/M-03.ipynb) | A Máquina de Turing | D-00 | esqueleto |
 | [M-04](matematica/M-04.ipynb) | A Transformada de Fourier — da decomposição espectral à QFT | N-04, N-06 | esqueleto |
+| [M-05](matematica/M-05.ipynb) | Álgebra Linear: das Equações aos Tensores | N-01, D-02 | esqueleto |
 
 ---
 
