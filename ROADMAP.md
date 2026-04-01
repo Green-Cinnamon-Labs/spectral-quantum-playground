@@ -1,81 +1,89 @@
-# Roadmap
+# Roteiro
 
-## Milestone 1 — Linguagem mínima do problema quântico
-
-**Estado de entrada:** curiosidade real formada, mas vocabulário básico ainda sendo consolidado. Estado, operador, unitário, observável e medição ainda se confundem às vezes.
-
-**O que este milestone introduz:** um núcleo mínimo de álgebra linear e circuito quântico suficiente para formular perguntas sem confusão conceitual.
-
-**Goal:** move from "portas e qubits como objetos soltos" to "problemas formulados como estados + operadores + medição".
-
-**Notebooks:**
-- [ ] [C-01](nucleo/C-01_estados_operadores_medidas.ipynb) — linguagem fundamental
-- [ ] [C-02](nucleo/C-02_unitarios_espectro_dinamica.ipynb) — por que unitário importa
-
-**Perguntas cobertas:** Q-F1, Q-F2, Q-F3
-
-**Critério de conclusão:** Consigo formular qualquer experimento dos milestones seguintes sem precisar voltar à definição de estado ou operador.
+O projeto segue uma ordem cronológica de entendimento: cada etapa dá ao leitor a definição útil do conceito antes de usá-lo na etapa seguinte.
 
 ---
 
-## Milestone 2 — Computação quântica como processamento espectral
+## Etapa 0 — Intuição antes do formalismo
 
-**Estado de entrada:** linguagem mínima fixada, mas ainda não existe uma noção clara do que o circuito está tentando extrair do operador.
+**Ponto de partida:** nenhum conhecimento formal de mecânica quântica assumido.
 
-**O que este milestone introduz:** a visão espectral — autovalores, autovetores, fase, dinâmica unitária e phase estimation em casos pequenos.
-
-**Goal:** move from "circuito como sequência de portas" to "circuito como mecanismo de extração de informação espectral".
+**O que esta etapa introduz:** por que o qubit é um substrato computacional diferente — não pela quantidade de estados, mas pela estrutura das amplitudes complexas e pelo que interferência torna possível.
 
 **Notebooks:**
-- [ ] [C-03](nucleo/C-03_kickback_de_fase.ipynb) — onde interferência começa a "dizer algo" sobre o operador
-- [ ] [C-04](nucleo/C-04_estimacao_de_fase.ipynb) — primeiro marco real do projeto
+- [ ] N-00 — Por que é possível computar com um qubit?
+- [ ] D-00 — O que é um qubit? *(digressão de apoio)*
 
-**Perguntas cobertas:** Q-F4, Q-S1, Q-S3, Q-C1, Q-C2
-
-**Critério de conclusão:** Consigo ligar diretamente a distribuição de saída do QPE ao espectro do operador de entrada, verificado classicamente.
+**Critério de conclusão:** consigo demonstrar um resultado determinístico via interferência que seria impossível com probabilidades clássicas.
 
 ---
 
-## Milestone 3 — Tradução de problemas clássicos para operadores
+## Etapa 1 — Linguagem mínima
 
-**Estado de entrada:** linguagem matemática formada e primeira noção espectral. Falta a ponte para casos de uso.
+**Ponto de partida:** intuição do qubit formada, mas formalismo ainda nebuloso.
 
-**O que este milestone introduz:** padrões de tradução de problemas simples para operador + preparação + medição, com análise explícita do que se perde e do que se ganha.
-
-**Goal:** move from "entender experimentos quânticos isolados" to "saber formular problemas pequenos para a linguagem do QPU".
+**O que esta etapa introduz:** estado, operador, observável, unitário, medição — o vocabulário mínimo para formular qualquer experimento quântico sem ambiguidade.
 
 **Notebooks:**
-- [ ] [C-05](nucleo/C-05_simulacao_hamiltoniana.ipynb) — dinâmica contínua como circuito *(status provisional — ver INDEX.md)*
-- [ ] [C-06](nucleo/C-06_traducao_de_problemas.ipynb) — notebook explicitamente sobre a tese
+- [ ] N-01 — Estados, Operadores e Medições
+- [ ] N-02 — Unitários, Espectro e Dinâmica
+- [ ] M-00 — Vetores, Espaços e o Espaço de Hilbert *(matemática de apoio)*
 
-**Perguntas cobertas:** Q-T1, Q-T2, Q-T4, Q-T5, Q-C3
-
-**Critério de conclusão:** Tenho pelo menos dois exemplos completos de tradução (problema → operador → circuito → medição) com análise de custo honesta.
+**Critério de conclusão:** consigo descrever qualquer experimento dos milestones seguintes em termos de estado inicial, operador e medição, sem precisar recorrer à definição dos termos.
 
 ---
 
-## Milestone 4 — Ponte honesta para a fronteira
+## Etapa 2 — Computação como processamento espectral
 
-**Estado de entrada:** capacidade de formular e testar casos pequenos, mas sem musculatura para ler trabalhos modernos sem se perder em formalismo.
+**Ponto de partida:** linguagem mínima fixada, mas sem noção clara do que o circuito está extraindo do operador.
 
-**O que este milestone introduz:** uma entrada controlada em QSP/QSVT e na distinção entre processamento de singular values e de eigenvalues.
-
-**Goal:** move from "intuição local sobre algoritmos" to "vocabulário e estrutura para ler a fronteira com criticidade".
+**O que esta etapa introduz:** a visão espectral — autovalores, fase, dinâmica, e o mecanismo pelo qual um circuito extrai informação espectral de um operador.
 
 **Notebooks:**
-- [ ] [C-07](nucleo/C-07_valores_singulares_vs_autovalores.ipynb) — distinção estrutural fundamental
-- [ ] [C-08](nucleo/C-08_qsp_qsvt_entrada.ipynb) — entrada na fronteira
+- [ ] N-03 — Kickback de Fase
+- [ ] N-04 — Estimação de Fase
+- [ ] M-01 — Teoria Espectral de Operadores *(matemática de apoio)*
+- [ ] M-02 — A Transformada de Fourier *(matemática de apoio)*
 
-**Perguntas cobertas:** Q-S2, Q-T3, Q-B1, Q-B2, Q-B3
+**Critério de conclusão:** consigo ligar diretamente a distribuição de saída do QPE ao espectro do operador de entrada, verificado classicamente.
 
-**Critério de conclusão:** Consigo ler um paper recente de QSP/QSVT e identificar qual estrutura espectral ele processa, por quê, e onde block-encoding entra.
+---
+
+## Etapa 3 — Tradução de problemas
+
+**Ponto de partida:** visão espectral formada; falta a ponte entre problemas concretos e a linguagem do QPU.
+
+**O que esta etapa introduz:** o padrão operador + preparação + medição aplicado a problemas reais, com análise honesta do custo de cada parte — em particular o custo de preparação do estado.
+
+**Notebooks:**
+- [ ] N-05 — Simulação Hamiltoniana
+- [ ] N-06 — Tradução de Problemas
+
+**Critério de conclusão:** tenho pelo menos dois exemplos completos de tradução (problema → operador → circuito → medição) com análise explícita do que se preserva e do que se perde.
+
+---
+
+## Etapa 4 — Ponte para a fronteira
+
+**Ponto de partida:** capaz de formular e testar casos pequenos; sem musculatura para ler trabalhos modernos.
+
+**O que esta etapa introduz:** a distinção entre autovalores e valores singulares, block-encoding, e uma entrada controlada em QSP/QSVT.
+
+**Notebooks:**
+- [ ] N-07 — Valores Singulares vs. Autovalores
+- [ ] N-08 — QSP / QSVT — Entrada
+- [ ] M-03 — Aproximação Polinomial *(matemática de apoio)*
+- [ ] M-04 — SVD — Geometria e Interpretação *(matemática de apoio)*
+
+**Critério de conclusão:** consigo ler um paper recente de QSP/QSVT, identificar qual estrutura espectral ele processa e onde block-encoding entra.
 
 ---
 
 ## Estado atual
 
-- [x] Repositório criado e estrutura base definida
-- [ ] **Milestone 1** — em andamento
-- [ ] Milestone 2
-- [ ] Milestone 3
-- [ ] Milestone 4
+- [x] Estrutura do repositório definida
+- [x] Etapa 0 — conteúdo escrito
+- [x] Etapa 1 — conteúdo escrito
+- [x] Etapa 2 — conteúdo escrito
+- [ ] Etapa 3 — em andamento
+- [ ] Etapa 4 — rascunhos iniciais
