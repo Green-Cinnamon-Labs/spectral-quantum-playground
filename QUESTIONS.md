@@ -9,8 +9,8 @@ Cada notebook do núcleo parte de uma pergunta explícita. Este arquivo é o ín
 | Notebook | Pergunta |
 |---|---|
 | N-00 | Por que é possível computar com um qubit? |
-| N-01 | O que é um estado quântico, e o que a medição destrói? |
-| N-02 | Por que a evolução precisa ser unitária, e o que o espectro de um operador diz sobre a dinâmica? |
+| N-01 | Como descrever sem ambiguidade um estado, uma operação e uma medição? |
+| N-02 | Por que a evolução precisa ser unitária, e o que o espectro diz sobre a dinâmica? |
 | N-03 | Como a fase de um autovalor migra para o registrador de controle? |
 | N-04 | Como um circuito extrai informação espectral de um operador? |
 | N-05 | Como uma dinâmica contínua vira circuito, e qual o custo da aproximação? |
