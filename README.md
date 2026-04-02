@@ -48,7 +48,7 @@ Ordem cronológica de entendimento. Cada notebook parte de uma pergunta explíci
 | Código | Pergunta | Digressões | Matemática | Status |
 |---|---|---|---|---|
 | [N-00](nucleo/N-00.ipynb) | Por que é possível computar com um qubit? | D-00 | — | rascunho |
-| [N-01](nucleo/N-01.ipynb) | Como descrever sem ambiguidade um estado, uma operação e uma medição? | D-01, D-02 | M-00 | rascunho |
+| [N-01](nucleo/N-01.ipynb) | O que uma operação quântica faz ao estado — e o que a medição consegue revelar sobre ela? | D-01, D-02 | M-00, M-05 | rascunho |
 | [N-02](nucleo/N-02.ipynb) | Por que a evolução precisa ser unitária, e o que o espectro diz sobre a dinâmica? | — | M-00 | esqueleto |
 | [N-03](nucleo/N-03.ipynb) | Como a fase de um autovalor migra para o registrador de controle? | D-02 | — | esqueleto |
 | [N-04](nucleo/N-04.ipynb) | Como um circuito extrai informação espectral de um operador? | D-03 | M-04 | esqueleto |
