@@ -1,3 +1,20 @@
+# ---------------------------------------------------------------------------
+# Comandos essenciais
+# ---------------------------------------------------------------------------
+#
+# Criar ambiente virtual e instalar dependências:
+#   poetry install
+#
+# Ativar o ambiente:
+#   poetry shell
+#
+# Rodar Jupyter sem ativar o shell:
+#   poetry run jupyter lab
+#
+# Gerar requirements.txt (para Binder / Colab / CI):
+#   poetry export -f requirements.txt --output requirements.txt --without-hashes
+#
+# ---------------------------------------------------------------------------
 [tool.poetry]
 name = "spectral-quantum-playground"
 version = "0.1.0"
@@ -19,21 +36,3 @@ ipykernel = "^6.29"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-# ---------------------------------------------------------------------------
-# Comandos essenciais
-# ---------------------------------------------------------------------------
-#
-# Criar ambiente virtual e instalar dependências:
-#   poetry install
-#
-# Ativar o ambiente:
-#   poetry shell
-#
-# Rodar Jupyter sem ativar o shell:
-#   poetry run jupyter lab
-#
-# Gerar requirements.txt (para Binder / Colab / CI):
-#   poetry export -f requirements.txt --output requirements.txt --without-hashes
-#
-# ---------------------------------------------------------------------------
