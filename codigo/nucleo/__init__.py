@@ -14,10 +14,12 @@ from .n01 import (
     plot_vetor_45_graus,
     plot_vetor_projecoes_desiguais,
 )
+from .n02 import mostrar_periodicidade_shor
 
 __all__ = [
     "mostrar_interferencia_recombinacao",
     "mostrar_moeda_superposicao",
+    "mostrar_periodicidade_shor",
     "mostrar_superposicao_como_onda",
     "plot_esfera_bloch_estado_superposto",
     "plot_esfera_bloch_estados_base",
