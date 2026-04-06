@@ -5,6 +5,7 @@ from __future__ import annotations
 from math import gcd
 
 import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
 
 
 def _periodo_modular(x: int, N: int) -> int:
@@ -13,6 +14,161 @@ def _periodo_modular(x: int, N: int) -> int:
         if pow(x, r, N) == 1:
             return r
     raise ValueError(f"Não foi possível encontrar o período de x={x} mod N={N}.")
+
+
+def _caixa(ax, x: float, y: float, w: float, h: float, texto: str, facecolor: str, edgecolor: str) -> None:
+    """Desenha uma caixa arredondada com texto centralizado."""
+    patch = FancyBboxPatch(
+        (x, y - h / 2),
+        w,
+        h,
+        boxstyle="round,pad=0.02,rounding_size=0.02",
+        linewidth=1.2,
+        edgecolor=edgecolor,
+        facecolor=facecolor,
+    )
+    ax.add_patch(patch)
+    ax.text(x + w / 2, y, texto, ha="center", va="center", fontsize=10, family="monospace")
+
+
+def mostrar_registradores_shor(
+    N: int = 15,
+    x: int = 2,
+    q: int = 8,
+    mostrar: bool = True,
+):
+    """Mostra os dois registradores antes e depois da exponenciação modular."""
+    if N <= 1:
+        raise ValueError("N deve ser maior que 1.")
+    if q <= 0:
+        raise ValueError("q deve ser maior que 0.")
+    if gcd(x, N) != 1:
+        raise ValueError(f"x={x} deve ser coprimo com N={N}.")
+
+    a_vals = list(range(q))
+    f_vals = [pow(x, a, N) for a in a_vals]
+    bits_a = max(1, (q - 1).bit_length())
+    bits_f = max(1, (N - 1).bit_length())
+
+    palette = ["#dbeafe", "#dcfce7", "#fef3c7", "#fee2e2", "#ede9fe", "#cffafe"]
+    color_map = {valor: palette[i % len(palette)] for i, valor in enumerate(dict.fromkeys(f_vals))}
+
+    fig_h = max(7.2, 1.25 + 0.9 * q)
+    fig, ax = plt.subplots(figsize=(14, fig_h))
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, q + 4.1)
+    ax.axis("off")
+
+    panel_y = 0.6
+    panel_h = q + 2.7
+    left_panel = FancyBboxPatch(
+        (0.03, panel_y),
+        0.42,
+        panel_h,
+        boxstyle="round,pad=0.02,rounding_size=0.03",
+        linewidth=1.3,
+        edgecolor="#94a3b8",
+        facecolor="#f8fafc",
+    )
+    right_panel = FancyBboxPatch(
+        (0.55, panel_y),
+        0.42,
+        panel_h,
+        boxstyle="round,pad=0.02,rounding_size=0.03",
+        linewidth=1.3,
+        edgecolor="#94a3b8",
+        facecolor="#f8fafc",
+    )
+    ax.add_patch(left_panel)
+    ax.add_patch(right_panel)
+
+    top = q + 1.8
+    step = 0.82
+    box_w = 0.12
+    box_h = 0.5
+    x1_left, x2_left = 0.09, 0.25
+    x1_right, x2_right = 0.61, 0.77
+
+    ax.text(0.24, q + 3.55, "Antes da exponenciacao modular", ha="center", va="center", fontsize=14, weight="bold")
+    ax.text(0.76, q + 3.55, "Depois da exponenciacao modular", ha="center", va="center", fontsize=14, weight="bold")
+    ax.text(0.24, q + 3.08, rf"$\frac{{1}}{{\sqrt{{{q}}}}}\sum_{{a=0}}^{{{q-1}}}|a\rangle|0\rangle$", ha="center", fontsize=12.5)
+    ax.text(
+        0.76,
+        q + 3.08,
+        rf"$\frac{{1}}{{\sqrt{{{q}}}}}\sum_{{a=0}}^{{{q-1}}}|a\rangle|{x}^a\ \mathrm{{mod}}\ {N}\rangle$",
+        ha="center",
+        fontsize=12.5,
+    )
+
+    ax.text(x1_left + box_w / 2, q + 2.35, "Registro 1\nindice a", ha="center", va="center", fontsize=11, weight="bold")
+    ax.text(x2_left + box_w / 2, q + 2.35, "Registro 2\ninicial", ha="center", va="center", fontsize=11, weight="bold")
+    ax.text(x1_right + box_w / 2, q + 2.35, "Registro 1\nindice a", ha="center", va="center", fontsize=11, weight="bold")
+    ax.text(x2_right + box_w / 2, q + 2.35, "Registro 2\nf(a) = x^a mod N", ha="center", va="center", fontsize=11, weight="bold")
+
+    for i, (a, f_a) in enumerate(zip(a_vals, f_vals)):
+        y = top - i * step
+        a_text = f"a={a}\n{a:0{bits_a}b}"
+        zero_text = f"0\n{0:0{bits_f}b}"
+        f_text = f"{f_a}\n{f_a:0{bits_f}b}"
+
+        _caixa(ax, x1_left, y, box_w, box_h, a_text, "#e0f2fe", "#0284c7")
+        _caixa(ax, x2_left, y, box_w, box_h, zero_text, "#f1f5f9", "#64748b")
+        _caixa(ax, x1_right, y, box_w, box_h, a_text, "#e0f2fe", "#0284c7")
+        _caixa(ax, x2_right, y, box_w, box_h, f_text, color_map[f_a], "#475569")
+
+        ax.annotate(
+            "",
+            xy=(x1_right - 0.02, y),
+            xytext=(x2_left + box_w + 0.02, y),
+            arrowprops=dict(arrowstyle="->", lw=1.25, color="#64748b"),
+        )
+        ax.text(
+            0.5,
+            y,
+            rf"$|{a}\rangle|0\rangle \rightarrow |{a}\rangle|{f_a}\rangle$",
+            ha="center",
+            va="center",
+            fontsize=9.5,
+            color="#334155",
+            bbox=dict(boxstyle="round,pad=0.18", facecolor="white", edgecolor="none", alpha=0.9),
+        )
+
+    legenda_x = 0.58
+    legenda_y = 0.85
+    ax.text(legenda_x, legenda_y + 0.35, "Repeticoes no Registro 2", fontsize=11, weight="bold", color="#334155")
+    for i, valor in enumerate(dict.fromkeys(f_vals)):
+        x_pos = legenda_x + i * 0.085
+        patch = FancyBboxPatch(
+            (x_pos, legenda_y - 0.02),
+            0.06,
+            0.26,
+            boxstyle="round,pad=0.02,rounding_size=0.02",
+            linewidth=1,
+            edgecolor="#475569",
+            facecolor=color_map[valor],
+        )
+        ax.add_patch(patch)
+        ax.text(x_pos + 0.03, legenda_y + 0.11, str(valor), ha="center", va="center", fontsize=10, family="monospace")
+
+    padrao = ",".join(str(v) for v in f_vals)
+    ax.text(0.76, 0.45, f"padrao no Registro 2: {padrao}", ha="center", fontsize=10.5, color="#475569")
+    ax.text(0.24, 0.45, f"q = {q}  |  N = {N}  |  x = {x}", ha="center", fontsize=10.5, color="#475569")
+
+    fig.tight_layout()
+    if mostrar:
+        plt.show()
+
+    return {
+        "fig": fig,
+        "ax": ax,
+        "N": N,
+        "x": x,
+        "q": q,
+        "a_vals": a_vals,
+        "f_vals": f_vals,
+        "bits_a": bits_a,
+        "bits_f": bits_f,
+    }
 
 
 def mostrar_periodicidade_shor(
