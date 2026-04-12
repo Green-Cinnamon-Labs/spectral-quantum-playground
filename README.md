@@ -1,16 +1,27 @@
 # spectral-quantum-playground
 
-Caderno de pesquisa reproduzível sobre computação quântica — construído cronologicamente, guiado por perguntas, honesto sobre o que foi e o que não foi aprendido.
+Caderno de pesquisa reproduzível sobre computação quântica. O objetivo dele é explorar uma tese:
 
-## Pergunta central
+<div style="border-left: 2px solid #16a34a; padding: 0.5em 1em 0.5em 1.1em; margin: 0.8em 0 1.2em 0; background: rgba(22, 163, 74, 0.05); border-radius: 0 3px 3px 0;">
+  <span style="font-size: 0.65em; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #16a34a;">TESE PRINCIPAL</span><br>
+  <span style="font-size: 0.88em; line-height: 1.65;">O principal desafio para engenheiros que visam aplicar computação quântica em problemas do cotidiano é desenvolver a intuição de como formalizar um problema real matemáticamente.</span>
+</div>
 
-> Quais estruturas matemáticas um problema precisa ter para ser processado por um circuito quântico de forma significativa?
+Um QPU não é uma CPU mais rápida. É uma unidade especializada que opera sobre estados quânticos por meio de transformações restritas. O gargalo prático, aqui, é saber formular o problema na linguagem correta: operadores, estados, unitários, observáveis, espectro, preparação, medição.
 
-## Tese
+## Como é a minha abordagem?
 
-O principal desafio de engenharia não está só em executar circuitos — está em **formular corretamente estados, operadores e medições** para que a computação quântica tenha significado algorítmico.
+Eu sempre faço o notebook ter uma pergunta central que é imediatamente respondida com uma afirmação que o leitor, no início da leitura, não entende. Essa afirmação guia a estruturação do notebook em questão. O objetivo é sempre explorar a afirmação que responde a pergunta do notebook. No final, exponho o que você entendeu — como uma espécie de resumo — e o que aquele notebook não te explicou — para que você perceba que alguma coisa realmente foi omitida de você.
 
-Um QPU não é uma CPU mais rápida. É uma unidade especializada que opera sobre estados quânticos por meio de transformações restritas. O gargalo é saber formular o problema na linguagem correta: operadores, estados, unitários, observáveis, espectro, preparação, medição.
+Eu decidi seguir uma abordagem repetitiva. A cada notebook do núcleo, eu praticamente repito as mesmas ideias com cada vez mais complexidade associada. Geralmente, eu vou usar exemplos básicos e ilustrativos para explorar ideias imporatantes e depois vou usar esses mesmos exemplos para formalizar um pouco da matemática, sempre em uma crescente de complexidade.
+
+Vou repetir e relembrar conceitos à exaustão. Uma mesma ideia será repetida dezenas de vezes ao longo dos vários núcleos. Vou usar esquemas visuais feitos com bibliotecas padrão do Python e em um estágio mais avançado, vamos usar `qiskit`. 
+
+A melhor forma de expor como isso está sendo usado sem acomodar demais o leitor é introduzido ele aos problemas reais. É por isso que eu vou explicar usando os artigos reais que firmaram milestones dentro da computação quântica. Meu objetivo é expor o leitor à cronologia dos fatos.
+
+Por fim, eu paralelizo com notebooks especializados em temas específicos. Achei interessante separar em dois grandes blocos: `digressões` e `matemática`. As digressões versam sobre os mesmos assuntos que você encontrará nos notebooks do núcleo. Já a matemática é focada em dar musculatura na intuição matemática e física. 
+
+Por fim, eu considero fundamental entender a etimologia das palavras que são
 
 ---
 
