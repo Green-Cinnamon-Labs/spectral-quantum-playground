@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from math import gcd
 
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 
@@ -266,4 +267,116 @@ def mostrar_periodicidade_shor(
         "gcd_plus": g2,
         "fig": fig,
         "ax": ax,
+    }
+
+
+def mostrar_comparacao_fatoracao(
+    n_bits_range: tuple[float, float] = (5.0, 4096.0),
+    n_points: int = 1000,
+    figsize: tuple[float, float] = (11, 6),
+    mostrar: bool = True,
+) -> tuple[plt.Figure, plt.Axes, dict]:
+    """Compara crescimento assintótico do custo clássico (NFS) e do algoritmo de Shor.
+
+    Plota em função de n_bits = log2(N) — eixos x e y em escala logarítmica.
+    N = 2^n_bits; todos os logs internos usam log natural (np.log).
+    c = 1 no indicador NFS é puramente normalizativo — apenas a forma funcional importa.
+
+    Retorna
+    -------
+    fig, ax, info  —  info contém 'crossover_bits' (lista) e 'sample_values'.
+    """
+    from matplotlib.transforms import blended_transform_factory
+
+    # Amostragem uniforme em escala log para cobrir bem a faixa 5..4096
+    n_bits = np.geomspace(n_bits_range[0], n_bits_range[1], n_points)
+
+    # N = 2^n_bits  →  ln N = n_bits · ln 2
+    ln_N       = n_bits * np.log(2)   # log natural de N
+    ln_ln_N    = np.log(ln_N)         # log natural de ln N
+    ln_ln_ln_N = np.log(ln_ln_N)      # log natural de ln ln N
+
+    # Indicador assintótico clássico (NFS, c = 1)
+    classical = np.exp(ln_N ** (1 / 3) * ln_ln_N ** (2 / 3))
+
+    # Indicador assintótico quântico (Shor)
+    quantum = ln_N ** 2 * ln_ln_N * ln_ln_ln_N
+
+    # Cruzamentos: índices onde (classical - quantum) muda de sinal
+    diff = classical - quantum
+    sign_idx = np.where(np.diff(np.sign(diff)))[0]
+    crossover_bits = [float(n_bits[i]) for i in sign_idx]
+
+    # Pontos de interesse para anotação
+    annotated = {
+        "N = 42":   np.log2(42),
+        "N = 1961": np.log2(1961),
+        "RSA-2048": 2048.0,
+    }
+
+    def _eval(nb: float) -> dict:
+        ln_n = nb * np.log(2)
+        ll   = np.log(ln_n)
+        lll  = np.log(ll)
+        return {
+            "classical": float(np.exp(ln_n ** (1 / 3) * ll ** (2 / 3))),
+            "quantum":   float(ln_n ** 2 * ll * lll),
+        }
+
+    sample_values = {label: _eval(nb) for label, nb in annotated.items()}
+
+    # --- Figura ---
+    fig, ax = plt.subplots(figsize=figsize)
+
+    ax.semilogy(n_bits, classical, color="#dc2626", lw=2.2,
+                label=r"Clássico (NFS)  $e^{(\ln N)^{1/3} (\ln\ln N)^{2/3}}$")
+    ax.semilogy(n_bits, quantum,   color="#2563eb", lw=2.2,
+                label=r"Quântico (Shor)  $(\ln N)^2 \cdot \ln(\ln N) \cdot \ln(\ln(\ln N))$")
+    ax.set_xscale("log")
+
+    # Blended transform: x em coordenadas de dados (escala log), y em fração do eixo
+    trans = blended_transform_factory(ax.transData, ax.transAxes)
+
+    # Cruzamento principal = último detectado (onde clássico passa a dominar permanentemente)
+    if crossover_bits:
+        main_cross = crossover_bits[-1]
+        ax.axvline(main_cross, color="#64748b", ls="--", lw=1.2, alpha=0.65)
+        ax.text(
+            main_cross * 1.12, 0.50,
+            f"cruzamento\n≈ {main_cross:.0f} bits",
+            transform=trans, color="#64748b", fontsize=8.5,
+            va="center", ha="left",
+        )
+
+    # Marcadores de N específicos
+    marker_colors = {
+        "N = 42":   "#7c3aed",
+        "N = 1961": "#0891b2",
+        "RSA-2048": "#059669",
+    }
+    for label, nb in annotated.items():
+        color = marker_colors[label]
+        ax.axvline(nb, color=color, ls=":", lw=1.2, alpha=0.75)
+        ax.text(
+            nb * 1.08, 0.97, label,
+            transform=trans, color=color,
+            fontsize=8.5, rotation=90, va="top", ha="left",
+        )
+
+    ax.set_xlim(n_bits_range)
+    ax.set(
+        xlabel="Tamanho do problema  (bits de N,  onde N = 2ⁿ)",
+        ylabel="Indicador de custo assintótico  (escala log)",
+        title="Crescimento assintótico: custo clássico (NFS) vs. custo quântico (Shor)",
+    )
+    ax.legend(loc="upper left", fontsize=9.5, framealpha=0.9)
+    ax.grid(True, which="both", alpha=0.18)
+    fig.tight_layout()
+
+    if mostrar:
+        plt.show()
+
+    return fig, ax, {
+        "crossover_bits": crossover_bits,
+        "sample_values":  sample_values,
     }

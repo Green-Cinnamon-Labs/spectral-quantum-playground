@@ -14,7 +14,11 @@ from .n01 import (
     plot_vetor_45_graus,
     plot_vetor_projecoes_desiguais,
 )
-from .n02 import mostrar_periodicidade_shor, mostrar_registradores_shor
+from .n02 import (
+    mostrar_periodicidade_shor,
+    mostrar_registradores_shor,
+    mostrar_comparacao_fatoracao,
+)
 
 __all__ = [
     "mostrar_interferencia_recombinacao",
@@ -29,4 +33,5 @@ __all__ = [
     "plot_numero_complexo_como_vetor",
     "plot_vetor_45_graus",
     "plot_vetor_projecoes_desiguais",
+    "mostrar_comparacao_fatoracao",
 ]
