@@ -1,4 +1,4 @@
-# spectral-quantum-playground
+# Survey on Quantum Computing
 
 Caderno de pesquisa reproduzível sobre computação quântica. O objetivo dele é explorar uma tese:
 
